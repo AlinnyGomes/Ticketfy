@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketfy - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"> <!---caixa para centralizar-->
+
+        <div class="card">  <!--cartão onde vamos colocar as abas e o os formularios--->
+
+            <div class="tabs"> <!---agrupa as abas----->
+                <button id="loginTab" class="active">Entrar</button>
+                <button id="registerTab">Cadastrar</button>
+            </div>
+
+            <form id="loginForm" class="form active"> <!---aba de login---->
+                <h2>Bem-vindo!</h2>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Senha" required>
+                <button class="btn">Entrar</button>
+            </form>
+
+
+            </form>
+
+            <form id="registerForm" class="form"> <!---aba de cadastro---->
+                <h2>Criar Conta</h2>
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Senha" required>
+                <button class="btn">Cadastrar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+ 
