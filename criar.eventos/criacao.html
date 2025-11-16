@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketfy - Seus Eventos do seu Jeito </title>
+    <link rel="stylesheet" href="criacao.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="menu-icon"><span class="material-icons">menu</span></div>
+        <div class="logo-ticketfy">TICKETFY</div>
+        <div class="search-icon"><span class="material-icons">search</span></div>
+    </header>
+
+    <main class="container">
+        <section class="criar evento">
+            <h2>Crie seus eventos aqui!</h2>
+            
+            <form action="/uploud-imagem" method="post">
+            <div>
+                <label for="imagemEvento"> Selecione a imagem do Evento:</label><br>
+                <input type="file" name="imagem" id="imagemEvento" accept=".jpg, .jpeg, .png">
+            </div>
+            </form>
+
+            <form action="/salvarInformacoes" method="post">
+            <div>
+                <fieldset>
+                    <legend>Informações Gerais</legend>
+                    <label for="nomeEvento">Nome do Evento:</label><br>
+                    <input type="text" name="nome" id="nomeEvento" placeholder="Digite aqui...">
+
+                    <br>
+
+                    <label for="descricaoEvento"> Descreva seu evento aqui:</label><br>
+                    <textarea type="text" name="descricao" id="descricaoEvento" rows="4" cols="60"
+                    placeholder="Descreva atrações, regras, público alvo..."></textarea>
+
+                    <br>
+
+                    <legend> Data e Horario </legend>
+                    <label for="dataInicio"> Inicio do evento: </label>
+                    <input type="datetime-local" name="dataInicio" id="dataInicio" required>
+
+                    <br>
+
+                    <label for="dataFim"> Fim do evento: </label>
+                    <input type="datetime-local" name="dataFim" id="dataFim" required>
+
+                    <br>
+
+                    <legend> Local do Evento </legend>
+                    <label for="localEvento"></label>
+                    <input type="text" name="local" id="localEvento" placeholder="Endereço completo..." required>
+                </fieldset>
+            </div>
+            </form>
+            <form action="/salvar-ingressos" method="post">
+            <div>
+                <h4> Ingressos </h4>
+                <button type="button" id="botao-adicionar-ingresso"> + Adicionar tipo de ingresso </button>
+            </div>
+            
+        <div id="container-ingressos">
+            </div>
+
+                <template id="template-ingresso">
+                    <fieldset class="bloco-ingresso">
+                        <legend>Novo Ingresso</legend>
+                        <label for="nomeIngresso"> Nome do ingresso: </label>
+                        <input type="text" name="nome" id="nomeIngresso" placeholder="Ex: Inteira, Meia, Cortesia..." required>
+
+                        <br>
+
+                        <label for="precoIngresso"> Preço (R$): </label>
+                        <input type="number" name="preco" id="precoIngresso" min="0" step="0.01" placeholder="1000,00" required>
+
+                        <br>
+
+                        <label for="quantidadeIngresso"> Quantidade: </label>
+                        <input type="number" name="quantidade" id="quantidadeIngresso" min="1"placeholder="10" required>
+                    </fieldset>
+                </template>
+        <button type="submit">Salvar Ingressos</button> 
+    </form>
+    
+    <script src="criacao.js"></script>
+</main>
+
+</body>
+</html>
