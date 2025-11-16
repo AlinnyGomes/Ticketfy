@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketfy - Seus Eventos do seu Jeito </title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="menu-icon"><span class="material-icons">menu</span></div>
+        <div class="logo-ticketfy">TICKETFY</div>
+        <div class="search-icon"><span class="material-icons">search</span></div>
+    </header>
+
+    <main class="container">
+        <section class="criar evento">
+            <h2>Crie seus eventos aqui!</h2>
+            <div>
+                <form action="/uploud-imagem" method="post">
+                    <label for="iamgemEvento"> Selecione a imagem do Evento :</label><br>
+                    <input type="file" name="imagem" id="imagemEvento" accept=".jpg, .jpeg, .png">
+                </form>
+            </div>
+            <div>
+                <h4> Nome: </h4>
+                <input type="text" name="nome" id="nomeEvento">
+                <h4> Data </h4>
+                <input type="date" name="data" id="dataEvento">
+                <h4> Horário </h4>
+                <input type="time" name="horario" id="horaEvento">
+                <h4> Local </h4>
+                <input type="text" name="lugar" id="lugarEvento">
+            </div>
+            <div>
+                <h4>Descrição</h4>
+                <input type="text" name="descricao" id="descricaoEvento">
+            </div>
+            <div id="container-ingressos">
+                <form action="/salvar-eventos" method="post">
+                    <h4> Configuração de Ingressos </h4>
+                    <button type="button" id="botao-adicionar-ingresso">
+                        + Adicionar tipo de ingresso
+                    </button>
+                    <button type="submit">Salvar Ingressos</button>
+
+                    <template id="template-ingresso">
+                        <fieldset class="bloco-ingresso">
+                            <legend>Novo Ingresso</legend>
+
+                            <label for="nomeIngresso">Nome do Ingresso:</label>
+                            <input type="text" id="nomeIngresso" name="nomeIngresso"
+                                placeholder="Ex: Inteira, Meia, Cortezia" required>
+
+                            <div>
+                                <label for="precoIngresso">Preço (R$):</label>
+                                <input type="number" id="precoIngresso" name="precoIngresso" min="0" step="0.01"
+                                    placeholder="1000" required>
+                            </div>
+                            <div>
+                                <label for="quantidadeIngresso">Quantidade:</label>
+                                <input type="number" id="quantidadeIngresso" name="quantidadeIngresso" min="1"
+                                    placeholder="500" required>
+                            </div>
+                        </fieldset>
+                    </template>
+
+                </form>
+
+
+                
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
