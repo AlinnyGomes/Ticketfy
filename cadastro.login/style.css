@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+
+    /*      reset da página              */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+}
+    /*    fundo da página          */
+body {
+    background: #f28a2e; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+    
+.container {     /* onde a animação está sendo usada */
+    animation: fadeIn 0.8s ease;
+}
+
+.card {       /* o cartão onde estão as abas*/
+    width: 330px;
+    background: #fff8e6;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0px 6px 0px #1e4535; 
+    border: 2px solid #1e4535;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+ 
+  /*      botões de login e cadastro  */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #1e4535;
+}
+
+.tabs button.active {
+    color: #f28a2e;
+}
+   /*  formularios        */
+.form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    animation: slide 0.4s ease;
+}
+
+.form.active {
+    display: flex;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #1e4535;
+}
+
+input {     /* entrada de dados do formularios */
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #1e4535;
+    font-size: 15px;
+    background: #fff;
+}
+
+     /* botões que envia os dados  */
+
+.btn {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background: #1e4535;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.falling-tickets-container {
+    /* Posicionamento e Tamanho */
+    position: fixed; /* Usa 'fixed' ou 'absolute' para cobrir a tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Camadas (IMPORTANTE) */
+    z-index: 1; /* Define uma camada baixa para ir para trás do formulário */
+    
+    /* Configurações Visuais */
+    overflow: hidden; 
+    pointer-events: none; /* Garante que os cliques passem para o elemento debaixo */
+}
+  /* estilo dos ingressos  */
+.mini-ticket {
+    background-image: url('teste.png'); /* Use a imagem do ingresso sem fundo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 140px; 
+    height: 100px; 
+    position: absolute;
+    top: -100px; 
+    /* Aplica a animação de queda */
+    animation-name: fall;
+    animation-timing-function: linear; 
+    animation-iteration-count: infinite; 
+}
+
+/* Definição da Animação de Queda */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg); 
+        opacity: 0; 
+    }
+}
+  
+   /* animações  */
+@keyframes slide {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
