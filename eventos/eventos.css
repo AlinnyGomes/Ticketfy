@@ -3,12 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap'); 
 
+html {
+    scroll-behavior: smooth;
+}
   /*  variáveis CSS globais    */
 :root {
-    --cor-fundo-laranja-claro: #ffe6c7;
-    --cor-primaria: #ff7f41;
-    --cor-secundaria: #ffdd44;
-    --cor-terciaria: #5a7d7c;
+    --cor-fundo-laranja-claro: #ff7f41;
+    --cor-primaria: #ffdd44;
+    --cor-secundaria: #023d3b;
+    --cor-terciaria: #467573;
     --cor-texto-escuro: #333333;
     --cor-texto-claro: #ffffff;
     --borda-arredondada: 15px;
@@ -24,8 +27,8 @@
       /* base da página  */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--cor-fundo-laranja-claro); /* cor do fundo da página  */
-    color: var(--cor-texto-escuro); /* cor do texto  */
+    background-color: #f4ac6d; 
+    color: var(--cor-texto-escuro); 
     line-height: 1.6;
 }
 
@@ -35,7 +38,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: var(--cor-fundo-laranja-claro); /* cor do fundo do header  */
+    background-color: var(--cor-fundo-laranja-claro); 
     box-shadow: var(--sombra-leve);
     position: sticky;
     top: 0;
@@ -47,15 +50,95 @@ body {
     font-size: 28px;
     color: var(--cor-terciaria);
     cursor: pointer;
+    flex-shrink: 0; 
+    padding: 0 10px;
 }
 
+/* MENU LATERAL*/
+.menu-lateral {
+    height: 100%; 
+    width: 0; 
+    position: fixed;
+    z-index: 1000; 
+    top: 0;
+    left: 0;
+    background-color: #f28a2e; 
+    overflow-x: hidden;
+    transition: 0.5s; 
+    padding-top: 60px;
+}
+
+.menu-lateral a {
+    padding: 15px 15px 15px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff; 
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+    color: #2e5234; 
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botão de Fechar */
+.menu-lateral .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* titulo */
 .logo-ticketfy {
     font-family: 'Fredoka', sans-serif; 
     font-size: 2.2em;
     font-weight: 700;
-    color: var(--cor-primaria);    /* cor do titulo */
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);   /* efeito de profundidade */
+    color: var(--cor-primaria);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+    flex-grow: 1; 
+    text-align: center;
 }
+
+/* Contêiner barra de pesquisa */
+.search-icon {
+    display: flex; 
+    align-items: center; 
+    background-color: #f28a2e; 
+    border-radius: 25px; 
+    padding: 5px 10px; 
+    margin-left: auto; 
+    max-width: 300px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+/* O Campo de digitação da Pesquisa */
+#barraPesquisa.campo-pesquisa-header { 
+    flex-grow: 1; 
+    border: none; 
+    background: transparent; 
+    padding: 8px 10px; 
+    font-size: 1em;
+    color: #fff; 
+    outline: none; 
+}
+
+#barraPesquisa.campo-pesquisa-header::placeholder {
+    color: rgba(255, 255, 255, 0.7); 
+}
+
+/* Ícone de Pesquisa  */
+.search-icon .material-icons {
+    color: #fff; 
+    font-size: 24px;
+    margin-left: 8px; 
+    cursor: pointer; 
+}
+
+#barraPesquisa.campo-pesquisa-header:focus {
+    border-bottom: 2px solid #1e4535;  
+} 
 
 /* --- Container Principal --- */
 .container {
@@ -66,26 +149,28 @@ body {
 
 /* --- Banner Principal --- */
 .banner-principal {
-    background-color: transparent; 
+    width: 100%;
+    height: 300px;
+    background-color: transparent;
     border-radius: var(--borda-arredondada);
     overflow: hidden;
     margin-bottom: 30px;
-    box-shadow: none; 
+    box-shadow: none;
     position: relative;
-    display: flex; 
+    display: flex;
     justify-content: center;
-    align-items: center; 
-    height: 250px; 
-    padding: 10px; 
+    align-items: center;
+    padding: 0; 
 }
 
 /* IMAGEM DENTRO DO BANNER */
 .imagem-banner-personalizado {
-    max-width: 100%; /* pra não transbordar */
-    max-height: 100%; /* pra que não transborde na altura */
-    object-fit: contain; /* Ajusta dentro do contêiner */
-    display: block; /* Remove espaços extras abaixo da imagem */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o banner todo */
+    display: block;
 }
+
 
 
 /* --- Título da Seção --- */
@@ -102,6 +187,43 @@ body {
     font-family: 'Fredoka', sans-serif;
     font-size: 1.8em;
     color: var(--cor-terciaria);
+}
+
+/* Container que alinha os botões*/
+.filter-container {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+
+/* Estilo para todos os Botões */
+.btn-filtro { 
+    padding: 8px 16px;
+    border: 2px solid #1e4535; 
+    border-radius: 20px;
+    background: transparent;
+    color: #1e4535; 
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease; 
+}
+
+/* Efeito ao Passar o Mouse */
+.btn-filtro:hover { 
+    background: #1e4535; 
+    color: #fff; 
+    transform: translateY(-2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado Ativo (Filtro Selecionado) */
+.btn-filtro.ativo { 
+    background: #f28a2e; 
+    border-color: #f28a2e; 
+    color: #fff; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Lista de Eventos --- */
@@ -179,6 +301,24 @@ body {
     align-self: flex-start;
 }
 
+.btn-comprar {
+    background-color: #f28a2e; 
+    color: #fff; 
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+    width: 100%; 
+}
+
+.btn-comprar:hover {
+    background-color: #e07a21; 
+}
+
 /* --- Botão Flutuante --- */
 .botao-flutuante {
     position: fixed;
@@ -209,4 +349,36 @@ body {
     font-size: inherit;
 }
 
+/* --- RODAPÉ --- */
+.rodape {
+    background-color: #ff7f41; 
+    padding: 20px 0;
+    margin-top: 50px;
+}
 
+.rodape-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.social-icon svg:hover {
+    transform: scale(1.15);
+}
+
+.logo-rodape img {
+    width: 110px; 
+}
