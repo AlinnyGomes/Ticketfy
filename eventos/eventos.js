@@ -154,17 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const botaoTodos = document.querySelector('.btn-filtro[data-tipo="Todos"]');
     if (botaoTodos) {
         botaoTodos.classList.add('ativo'); 
-        aplicarFiltros('Todos', ''); // Inicializa com Todos os eventos e pesquisa vazia
+        aplicarFiltros('Todos', ''); 
     } else {
         renderizarEventos(eventos); 
     }
 
 }); 
 
-// BOTÃO FLUTUANTE
-const botaoFlutuante = document.querySelector('.botao-flutuante');
-if (botaoFlutuante) { // Verificação de segurança
-    botaoFlutuante.addEventListener('click', () => {
-        alert('Botão "+" clicado! Abrir formulário para novo evento?');
-    });
-}

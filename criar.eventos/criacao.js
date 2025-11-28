@@ -1,32 +1,30 @@
 let contadorIngressos = 0;
 
 function adicionarNovoIngresso() {
-    // 1. Incrementa o contador para nomes únicos
+    // Incrementa o contador para nomes
     contadorIngressos++;
 
-    // 2. Pega o template HTML (o molde)
     const template = document.getElementById('template-ingresso');
 
-    // 3. Clona o conteúdo do template
-    // ATENÇÃO: Se o HTML do template estiver incorreto (elementos fora do fieldset), este bloco falhará.
+     //Clona o conteúdo
     const novoIngresso = template.content.cloneNode(true);
 
-    // 4. Localiza o <fieldset> no clone
+    // localiza
     const fieldset = novoIngresso.querySelector('.bloco-ingresso');
 
-    // 5. Verifica se o fieldset foi encontrado. Se não, para a função.
+    //Verifica se foi encontrado.
     if (!fieldset) {
         console.error("ERRO: O elemento com a classe '.bloco-ingresso' não foi encontrado no template.");
         return;
     }
 
-    // 6. Define um ID único para o fieldset
+    //Define um ID único
     fieldset.id = `ingresso_${contadorIngressos}`;
 
-    // 7. Ajusta os atributos 'name', 'id' e 'for' para evitar conflitos no formulário
+    // Ajuste dos atributos 'name', 'id' e 'for'
     novoIngresso.querySelectorAll('input, label').forEach(elemento => {
 
-        // Ajusta o 'name' (CRUCIAL para enviar dados ao servidor)
+        // Ajusta o 'name'
         if (elemento.hasAttribute('name')) {
             const nomeAtual = elemento.getAttribute('name');
             elemento.setAttribute('name', `${nomeAtual}_${contadorIngressos}`);
@@ -42,7 +40,7 @@ function adicionarNovoIngresso() {
         }
     });
 
-    // 8. Cria e anexa o botão de remover
+    // botão de remover
     const botaoRemover = document.createElement('button');
     botaoRemover.setAttribute('type', 'button');
     botaoRemover.textContent = 'Remover X';
@@ -54,11 +52,11 @@ function adicionarNovoIngresso() {
 
     const legend = fieldset.querySelector('legend');
     if (legend) {
-        legend.prepend(botaoRemover); // Insere o botão ao lado do <legend>
+        legend.prepend(botaoRemover);
     }
 
 
-    // 9. Insere o novo bloco no CONTAINER (ID recomendado: container-ingressos)
+    // Insere o novo bloco
     const container = document.getElementById('container-ingressos');
     if (container) {
         container.appendChild(novoIngresso);
@@ -67,7 +65,7 @@ function adicionarNovoIngresso() {
     }
 }
 
-// Conecta a função ao clique do botão
+// função do clique do botão
 document.addEventListener('DOMContentLoaded', () => {
     const botao = document.getElementById('botao-adicionar-ingresso');
 
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         botao.addEventListener('click', adicionarNovoIngresso);
     }
 
-    // Adiciona o primeiro ingresso ao carregar a página (somente se o container existir)
+    // Adiciona o ingresso
     if (document.getElementById('container-ingressos')) {
         adicionarNovoIngresso();
     }

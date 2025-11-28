@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+/* resetao sinistro */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+}
+
+/* background */
+body {
+    background: #f28a2e;
+    min-height: 100vh; 
+    position: relative;
+}
+
+/* conteiner do meioca */
+.container { 
+    animation: fadeIn 0.8s ease;
+    padding: 20px;
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding-top: 80px; 
+}
+
+/* header  */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #1e4535; 
+    color: #FFDD44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+}
+
+.logo-ticketfy {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 #f28a2e, 
+        -1px -1px 0 #f28a2e;
+}
+
+.menu-icon, .search-icon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* criar evento */
+.criar.evento {
+    background: #fff8e6;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0px 6px 0px #1e4535; 
+    border: 2px solid #1e4535;
+    margin-bottom: 30px;
+}
+
+h2, h4 {
+    color: #1e4535;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* formulario e campo de preenchiments */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+fieldset {
+    border: 2px solid #1e4535;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #ffffff;
+}
+
+legend {
+    font-weight: 600;
+    color: #1e4535;
+    padding: 0 10px;
+    font-size: 1.1em;
+}
+
+label {
+    color: #1e4535;
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="datetime-local"],
+input[type="number"],
+textarea { 
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #1e4535;
+    font-size: 15px;
+    background: #fff;
+    margin-top: 5px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    border: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* botões  */
+.btn, button[type="submit"], #botao-adicionar-ingresso {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background: #1e4535;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn:hover, button[type="submit"]:hover, #botao-adicionar-ingresso:hover {
+    transform: translateY(-3px);
+    background: #2a5c45; 
+}
+
+#botao-adicionar-ingresso {
+    background: #f28a2e;
+    color: #1e4535;
+    border: 2px solid #1e4535;
+    margin-bottom: 20px;
+}
+
+#botao-adicionar-ingresso:hover {
+    background: #ff9933;
+}
+
+
+.bloco-ingresso {
+    background: #fff;
+    margin-top: 15px;
+}
+
+/* animation  */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .criar.evento {
+        padding: 20px;
+    }
+}
